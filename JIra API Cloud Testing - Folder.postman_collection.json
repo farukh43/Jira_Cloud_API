@@ -1,0 +1,834 @@
+{
+	"info": {
+		"_postman_id": "bfc66384-da7e-4798-aaa7-21a58241ad9f",
+		"name": "JIra API Cloud Testing - Folder",
+		"description": "This Project demonstrate how we can Group the folders Based on your project Needs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12320035",
+		"_collection_link": "https://universal-station-971182.postman.co/workspace/APItestingLearn~d29b68ea-651d-4951-93fc-904c635227dd/collection/12320035-bfc66384-da7e-4798-aaa7-21a58241ad9f?action=share&source=collection_link&creator=12320035"
+	},
+	"item": [
+		{
+			"name": "Get Events",
+			"item": [
+				{
+					"name": "200 0K",
+					"item": []
+				},
+				{
+					"name": "201 Created",
+					"item": [],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "400 Bad Request",
+					"item": []
+				},
+				{
+					"name": "401 Unauth",
+					"item": []
+				},
+				{
+					"name": "403 Forbidden",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "Create Issues",
+			"item": [
+				{
+					"name": "200 0K",
+					"item": []
+				},
+				{
+					"name": "201 Created",
+					"item": [
+						{
+							"name": "Positive Test Cases",
+							"item": [
+								{
+									"name": "Create a Story - Mandotary Attributes",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"const response = pm.response.json();\r",
+													"console.log(response);\r",
+													"console.log(response.id);\r",
+													"pm.collectionVariables.set(\"userStoryID\",response.id)"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"{{issueID}}\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"{{ProjectID}}\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"{{repoterID}}\"\r\n    },\r\n    \r\n    \"summary\": \"Using Variables in JSON Body to create a issue\"\r\n\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_URL}}/issue",
+											"host": [
+												"{{base_URL}}"
+											],
+											"path": [
+												"issue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a issue - All Attributes",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"const response = pm.response.json();\r",
+													"console.log(response);\r",
+													"console.log(response.id);\r",
+													"pm.collectionVariables.set(\"userStoryID\",response.id)"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"{{issueID}}\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"{{ProjectID}}\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"{{repoterID}}\"\r\n    },\r\n    \r\n    \"summary\": \"Using Variables in JSON Body to create a issue\"\r\n\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://farukh43.atlassian.net/rest/api/3/issue",
+											"protocol": "https",
+											"host": [
+												"farukh43",
+												"atlassian",
+												"net"
+											],
+											"path": [
+												"rest",
+												"api",
+												"3",
+												"issue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a Story - All Attributes",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"const response = pm.response.json();\r",
+													"console.log(response);\r",
+													"console.log(response.id);\r",
+													"pm.collectionVariables.set(\"userStoryID\",response.id)"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"{{issueID}}\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"{{ProjectID}}\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"{{repoterID}}\"\r\n    },\r\n    \r\n    \"summary\": \"Using Variables in JSON Body to create a issue\"\r\n\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://farukh43.atlassian.net/rest/api/3/issue",
+											"protocol": "https",
+											"host": [
+												"farukh43",
+												"atlassian",
+												"net"
+											],
+											"path": [
+												"rest",
+												"api",
+												"3",
+												"issue"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Create a issue - Mandotary Attributes",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"const response = pm.response.json();\r",
+													"console.log(response);\r",
+													"console.log(response.id);\r",
+													"pm.collectionVariables.set(\"userStoryID\",response.id)"
+												],
+												"type": "text/javascript",
+												"packages": {}
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"{{issueID}}\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"{{ProjectID}}\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"{{repoterID}}\"\r\n    },\r\n    \r\n    \"summary\": \"Using Variables in JSON Body to create a issue\"\r\n\r\n}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://farukh43.atlassian.net/rest/api/3/issue",
+											"protocol": "https",
+											"host": [
+												"farukh43",
+												"atlassian",
+												"net"
+											],
+											"path": [
+												"rest",
+												"api",
+												"3",
+												"issue"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Negative Test Cases",
+							"item": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"packages": {},
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "400 Bad Request",
+					"item": []
+				},
+				{
+					"name": "401 Unauth",
+					"item": []
+				},
+				{
+					"name": "403 Forbidden",
+					"item": []
+				}
+			]
+		},
+		{
+			"name": "E2E API Testing",
+			"item": [
+				{
+					"name": "Create story issue type in New Project",
+					"item": [
+						{
+							"name": "Get Jira Project - E2E",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const response = pm.response.jsonp();\r",
+											"console.log(response.values);\r",
+											" \r",
+											" //Reading the Data from json response\r",
+											" //Creating a collectionVariable based on project name \r",
+											" //setting the project ID\r",
+											"let projectDetails = response.values;\r",
+											"const projectNames = projectDetails.map((projectName) => projectName.name );\r",
+											"console.log(\"Project Names \" +projectNames);\r",
+											"pm.collectionVariables.set('ProjectID',projectDetails[projectNames.indexOf('Learning')].id)\r",
+											"\r",
+											"//pm.collectionVariables.set('ProjectID',projectDetails[projectNames.indexOf('Learning')].name) --> To set the project name as parameter\r",
+											"\r",
+											"//*********** GETTING KEY**************** */\r",
+											"//Reading the Data from json response\r",
+											"//Creating a collectionVariable based on project name\r",
+											"//setting the project Key\r",
+											"const projectKeys = projectDetails.map((projectKey) => projectKey.key);\r",
+											"console.log(\"Peoject Keys Array \"+ projectKeys);\r",
+											"pm.collectionVariables.set('ProjectKey',projectDetails[projectKeys.indexOf('SCRUM')].key)\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"//pm.execution.setNextRequest(\"Get Issue Types for project - E2E\");\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_URL}}/project/search",
+									"host": [
+										"{{base_URL}}"
+									],
+									"path": [
+										"project",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Issue Types for project - E2E",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//This Approach Hardcoded the value\r",
+											"//Which is not recommanded, we will get the values dynamically\r",
+											"/*\r",
+											"const response = pm.response.json();\r",
+											"console.log(response);\r",
+											"console.log(response[2].id);\r",
+											"pm.collectionVariables.set(\"issueID\",response[2].id)\r",
+											"*/\r",
+											"\r",
+											"//Setting the Story ID as Collection Variable\r",
+											"const response = pm.response.json();\r",
+											"console.log(response);\r",
+											"const desiredValues = response.map((value) => value.name );\r",
+											"console.log(desiredValues);\r",
+											"\r",
+											"// Here we are hardcoding the value of Story type ID \r",
+											"//If we wan to do for multiple types then its a tedius task , we are doing it through DDT\r",
+											"//pm.collectionVariables.set('issueID',response[desiredValues.indexOf('Story')].id)\r",
+											"\r",
+											"//Using Data Driven Testing\r",
+											"//pm.collectionVariables.set('issueID',response[desiredValues.indexOf('Story')].id)\r",
+											"\r",
+											"//The Below statement will read the DataFrom the CSV file\r",
+											"//But When we run individually , it will fail\r",
+											"//pm.collectionVariables.set('issueID', response[desiredValues.indexOf(pm.iterationData.get(\"issueID\"))].id);\r",
+											"\r",
+											"//The best approach is define it as variables, so that will take that at run time\r",
+											"pm.collectionVariables.set('issueID', response[desiredValues.indexOf(pm.variables.get(\"issueName\"))].id);\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"//pm.execution.setNextRequest(\"Find users assignable to projects - E2E\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_URL}}/issuetype/project?projectId={{ProjectID}}",
+									"host": [
+										"{{base_URL}}"
+									],
+									"path": [
+										"issuetype",
+										"project"
+									],
+									"query": [
+										{
+											"key": "projectId",
+											"value": "{{ProjectID}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find users assignable to projects - E2E",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"/*\r",
+											"This Approach is hardcoded the values\r",
+											"\r",
+											"const response = pm.response.json();\r",
+											"console.log(response);\r",
+											"console.log(response[0].accountId);\r",
+											"pm.collectionVariables.set(\"repoterID\",response[0].accountId)\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"*/\r",
+											"\r",
+											"//Setting the Story ID as Collection Variable\r",
+											"const response = pm.response.json();\r",
+											"console.log(response);\r",
+											"const desiredValues = response.map((value) => value.displayName );\r",
+											"console.log(desiredValues);\r",
+											"pm.collectionVariables.set('userID',response[desiredValues.indexOf('Farukh Ahemad G Pathan')].accountId)\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"//pm.execution.setNextRequest(\"Create a issue in project\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_URL}}/user/assignable/multiProjectSearch?projectKeys={{ProjectKey}}",
+									"host": [
+										"{{base_URL}}"
+									],
+									"path": [
+										"user",
+										"assignable",
+										"multiProjectSearch"
+									],
+									"query": [
+										{
+											"key": "projectKeys",
+											"value": "{{ProjectKey}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a issue in project",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201 and a success\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"     pm.response.to.be.success;\r",
+											"});\r",
+											"\r",
+											"const response = pm.response.json();\r",
+											"pm.collectionVariables.set(\"userStoryID\",response.id)\r",
+											"pm.collectionVariables.set(\"userStoryKey\",response.key)\r",
+											"pm.execution.setNextRequest(\"Get the created Issue\");"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"/*\r",
+											"//Approach 1 Using random Pharse to user story\r",
+											"let tittle= pm.collectionVariables.replaceIn(\"{{$randomPhrase}}\");\r",
+											"pm.collectionVariables.set(\"IssueTittle\",tittle);\r",
+											"\r",
+											"*/\r",
+											"\r",
+											"//Approach 2\r",
+											"//This will create a issues when we run the file , individually\r",
+											"//pm.collectionVariables.set(\"IssueTittle\", pm.iterationData.get(\"IssueTittle\"));\r",
+											"\r",
+											"//Best Approach \r",
+											"pm.collectionVariables.set(\"IssueTittle\", pm.variables.get(\"IssueTittle\"));"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"fields\": {\r\n    \"issuetype\": {\r\n      \"id\": \"{{issueID}}\"\r\n    },\r\n    \"project\": {\r\n      \"id\": \"{{ProjectID}}\"\r\n    },\r\n    \"reporter\": {\r\n      \"id\": \"{{userID}}\"\r\n    },\r\n    \r\n    \"summary\": \"{{IssueTittle}}\"\r\n}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://farukh43.atlassian.net/rest/api/3/issue",
+									"protocol": "https",
+									"host": [
+										"farukh43",
+										"atlassian",
+										"net"
+									],
+									"path": [
+										"rest",
+										"api",
+										"3",
+										"issue"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get the created Issue",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"const response = pm.response.json();\r",
+											"console.log(response.fields.summary);\r",
+											"console.log(response.id);\r",
+											"console.log(response.key);\r",
+											"pm.test(\"Verify the 'maxResults' value in the response as 20\", function () {\r",
+											"    pm.expect(pm.response.json().fields.worklog.maxResults).to.eql(20);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Verify the summary matches\", ()=>{\r",
+											"pm.expect(response.fields.summary).to.eql(pm.collectionVariables.get(\"IssueTittle\"));\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Verify the User story matches\", ()=>{\r",
+											"pm.expect(response.id).to.eql(pm.collectionVariables.get(\"userStoryID\"));\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Verify the userStoryKey matches\", ()=>{\r",
+											"pm.expect(response.key).to.eql(pm.collectionVariables.get(\"userStoryKey\"));\r",
+											"})\r",
+											"\r",
+											"//pm.execution.setNextRequest(null);\r",
+											"\r",
+											"/*\r",
+											"pm.collectionVariables.unset(\"ProjectID\");\r",
+											"pm.collectionVariables.unset(\"issueID\");\r",
+											"pm.collectionVariables.unset(\"repoterID\");\r",
+											"pm.collectionVariables.unset(\"userStoryID\");\r",
+											"//pm.collectionVariables.clear()\r",
+											"//pm.environment.clear()\r",
+											"\r",
+											"*/\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"console.clear();\r",
+											"console.log(pm.globals.get(\"Url_global\"))\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\" : \"{{$randomFirstName}}\",\r\n    \"alphanumeric\" : {{$randomAlphaNumeric}},\r\n    \"lastName\" : {{$randomLastName}},\r\n    \"phoneNumber\" : {{$randomPhoneNumber}},\r\n    \"address\" : {{$randomStreetAddress}},\r\n    \"addresscity\" : {{$randomCity}},\r\n    \"country\" : {{$randomCountry}},\r\n    \"countryCode\" : {{$randomCountryCode}},\r\n    \"username\":{{$randomUserName}}\r\n\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_URL}}/issue/{{userStoryID}}",
+									"host": [
+										"{{base_URL}}"
+									],
+									"path": [
+										"issue",
+										"{{userStoryID}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Bug issue type in New Project",
+					"item": []
+				},
+				{
+					"name": "Create Sub-Task issue type in New Project",
+					"item": []
+				}
+			],
+			"description": "Creating a issues from geeting all different modules - (Includig all the depending Modules Dynamically)"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{jiraKey}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{username_Jira}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "ProjectID",
+			"value": ""
+		},
+		{
+			"key": "ProjectKey",
+			"value": ""
+		},
+		{
+			"key": "issueID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userID",
+			"value": ""
+		},
+		{
+			"key": "IssueTittle",
+			"value": ""
+		},
+		{
+			"key": "userStoryID",
+			"value": ""
+		},
+		{
+			"key": "userStoryKey",
+			"value": ""
+		},
+		{
+			"key": "issueName",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
